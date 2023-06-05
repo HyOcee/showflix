@@ -1,0 +1,13 @@
+<div class="overlay">
+  <div class="movie-details">
+    <button (click)="back()" class="icon-button"><i class="fas fa-arrow-left"></i></button>
+
+    <img [src]="(movieDetails$ | async)?.Poster" alt="" />
+
+    <h3>{{ (movieDetails$ | async)?.Title }}</h3>
+
+    <p>{{ (movieDetails$ | async)?.Plot }}</p>
+
+    <app-button (clicked)="watchMovie()" text="Watch" width="100%"></app-button>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+.movie-details {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 95vw;
+  max-width: 300px;
+  padding: 28px 20px;
+
+  img {
+    width: 100%;
+    display: block;
+    margin-top: 40px;
+    border-radius: 12px;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 40px;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .movie-details {
+    padding: 24px;
+  }
+}
+
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #bfbfbf;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+}
+
+.icon-button {
+  outline: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.05;
+    background-color: #bfbfbf;
+  }
+}

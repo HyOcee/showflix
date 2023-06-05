@@ -1,0 +1,20 @@
+<h2 class="customBlack">Explore</h2>
+
+<form [formGroup]="searchForm" (ngSubmit)="search()" class="search-form">
+  <div class="input-holder">
+    <i class="fa fa-search"></i>
+    <input formControlName="s" type="text" placeholder="Search" />
+  </div>
+
+  <app-button [text]="'Search'"></app-button>
+</form>
+
+<section *ngIf="searchResults$ | async">
+  <div class="results-title">
+    Results for: <span>{{ searchForm.value.s }}</span>
+  </div>
+
+  <div class="movie-cards">
+    <app-movie-card *ngFor="let item of (searchResults$ | async)?.Search" [movie]="item"></app-movie-card>
+  </div>
+</section>
