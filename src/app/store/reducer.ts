@@ -3,6 +3,7 @@ import { IMovieDetail, ISearchResponse } from '../models';
 import * as _actions from './actions';
 
 export interface IAppState {
+  searchQuery: string | null;
   searchResults: ISearchResponse | null;
   searchLoading: boolean;
   movieDetails: IMovieDetail | null;
@@ -13,6 +14,7 @@ export interface IAppState {
 }
 
 const initialState: IAppState = {
+  searchQuery: null,
   searchResults: null,
   movieDetails: null,
   searchLoading: false,
@@ -24,9 +26,10 @@ const initialState: IAppState = {
 
 const reducer = createReducer(
   initialState,
-  on(_actions.searchMovies, (state) => ({
+  on(_actions.searchMovies, (state, { s }) => ({
     ...state,
     searchLoading: true,
+    searchQuery: s,
   })),
   on(_actions.getMovieDetails, (state) => ({
     ...state,

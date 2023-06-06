@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { take } from 'rxjs';
 import { AppStoreFacade } from 'src/app/store/facade';
 
 @Component({
@@ -21,6 +22,10 @@ export class HomeComponent implements OnInit {
     this.searchForm = this.fb.group({
       s: ['', Validators.required],
     });
+
+    this.appStoreFacade.searchQuery$
+      .pipe(take(1))
+      .subscribe((res) => this.searchForm.get('s')?.patchValue(res));
   }
 
   search() {

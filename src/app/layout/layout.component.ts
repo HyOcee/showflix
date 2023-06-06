@@ -31,4 +31,8 @@ export class LayoutComponent implements OnInit {
   toggleNav() {
     this.storeFacade.toggleNav()
   }
+
+  closeNav() {
+    this.storeFacade.closeNav()
+  }
 }

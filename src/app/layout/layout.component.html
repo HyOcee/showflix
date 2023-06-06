@@ -4,10 +4,10 @@
       <i class="fas fa-arrow-left"></i>
     </button>
 
-    <div class="logo" routerLink="/">Show<span>Flix</span></div>
+    <div (click)="closeNav()" class="logo" routerLink="/">Show<span>Flix</span></div>
 
     <div class="links">
-      <a routerLink="/" class="search">
+      <a (click)="closeNav()" routerLink="/" class="search">
         <i class="fa fa-search"></i>
         <span>Search</span>
       </a>

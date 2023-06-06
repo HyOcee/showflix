@@ -7,6 +7,11 @@ import { Store, select } from '@ngrx/store';
 
 @Injectable()
 export class AppStoreFacade {
+  searchQuery$ = this.store.pipe(
+    select(_selectors.selectAppState),
+    map((x) => x?.searchQuery || null)
+  );
+
   selectSearchResults$ = this.store.pipe(
     select(_selectors.selectAppState),
     map((x) => x?.searchResults || null)
