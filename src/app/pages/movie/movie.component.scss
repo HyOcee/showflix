@@ -1,0 +1,76 @@
+h2 {
+  font-weight: 800;
+  font-size: 24px;
+}
+
+section.movie {
+  display: grid;
+  gap: 24px;
+
+  img {
+    border-radius: 12px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  p {
+    text-align: justify;
+    padding: 24px 0;
+  }
+
+  .ratings-and-date {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      i {
+        color: #14142b;
+        font-weight: 500;
+      }
+
+      span {
+        font-weight: 300;
+      }
+    }
+  }
+
+  .actions {
+    margin-top: 60px;
+    display: flex;
+    gap: 16px;
+
+    button {
+      background-color: #d9dbe9;
+      border-radius: 8px;
+      padding: 4px 14px;
+      font-size: 20px;
+      color: #5f2eea;
+      outline: none;
+      border: none;
+    }
+  }
+}
+
+.similar-movies {
+  margin-top: 60px;
+}
+
+@media screen and (min-width: 760px) {
+  section.movie {
+    img {
+      aspect-ratio: 8 / 10;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  section.movie {
+    grid-template-columns: 340px 400px;
+  }
+}

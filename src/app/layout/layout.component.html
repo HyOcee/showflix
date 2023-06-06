@@ -1,4 +1,18 @@
-<div>
+<div class="container">
+    <nav>
+        <div class="logo" routerLink="/">Show<span>Flix</span></div>
+
+        <div class="links">
+            <a routerLink="/" class="search">
+                <i class="fa fa-search"></i>
+                <span>Search</span>
+            </a>
+            <a class="watchlist">
+                <i class="far fa-heart"></i>
+                <span>Watchlist</span>
+            </a>
+        </div>
+    </nav>
     <main>
         <router-outlet></router-outlet>
     </main>

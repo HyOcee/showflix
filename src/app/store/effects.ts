@@ -50,6 +50,27 @@ export class MovieEffects {
       )
     )
   );
+  
+  $getMovie = createEffect(() =>
+    this.actions$.pipe(
+      ofType(_actions.getMovie),
+      switchMap(({ i }) =>
+        this.movieService.getMovieDetails(i).pipe(
+          map((res) => {
+            if (res.Response !== 'True') {
+              return _actions.getMovieError({
+                error: 'Could not find any results',
+              });
+            }
+            return _actions.getMovieSuccess({ movie: res });
+          }),
+          catchError((error) => {
+            return of(_actions.getMovieError({ error }));
+          })
+        )
+      )
+    )
+  );
 
   constructor(
     private store: Store,

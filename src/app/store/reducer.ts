@@ -7,6 +7,8 @@ export interface IAppState {
   searchLoading: boolean;
   movieDetails: IMovieDetail | null;
   getMovieDetailsLoading: boolean;
+  movie: IMovieDetail | null;
+  getMovieLoading: boolean;
 }
 
 const initialState: IAppState = {
@@ -14,6 +16,8 @@ const initialState: IAppState = {
   movieDetails: null,
   searchLoading: false,
   getMovieDetailsLoading: false,
+  movie: null,
+  getMovieLoading: false,
 };
 
 const reducer = createReducer(
@@ -26,6 +30,10 @@ const reducer = createReducer(
     ...state,
     getMovieDetailsLoading: true,
   })),
+  on(_actions.getMovie, (state) => ({
+    ...state,
+    getMovieLoading: true,
+  })),
   on(_actions.searchMoviesError, (state) => ({
     ...state,
     searchLoading: false,
@@ -33,6 +41,10 @@ const reducer = createReducer(
   on(_actions.getMovieDetailsError, (state) => ({
     ...state,
     getMovieDetailsLoading: false,
+  })),
+  on(_actions.getMovieError, (state) => ({
+    ...state,
+    getMovieLoading: false,
   })),
   on(_actions.searchMoviesSuccess, (state, { searchResults }) => ({
     ...state,
@@ -43,7 +55,22 @@ const reducer = createReducer(
     ...state,
     getMovieDetailsLoading: false,
     movieDetails,
-  }))
+  })),
+  on(_actions.getMovieSuccess, (state, { movie }) => ({
+    ...state,
+    getMovieLoading: false,
+    movie,
+  })),
+  on(_actions.clearMovieDetails, (state) => ({
+    ...state,
+    getMovieDetailsLoading: false,
+    movieDetails: null,
+  })),
+  on(_actions.clearMovie, (state) => ({
+    ...state,
+    getMovieLoading: false,
+    movie: null,
+  })),
 );
 
 export const AppReducer = {

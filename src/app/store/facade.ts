@@ -26,6 +26,16 @@ export class AppStoreFacade {
     select(_selectors.selectAppState),
     map((x) => x?.getMovieDetailsLoading || false)
   );
+  
+  selectMovie = this.store.pipe(
+    select(_selectors.selectAppState),
+    map((x) => x?.movie || null)
+  );
+
+  selectMovieLoading$ = this.store.pipe(
+    select(_selectors.selectAppState),
+    map((x) => x?.getMovieLoading || false)
+  );
 
   constructor(private readonly store: Store) {}
 
@@ -39,5 +49,13 @@ export class AppStoreFacade {
 
   clearMovieDetails = () => {
     this.store.dispatch(_actions.clearMovieDetails());
+  };
+  
+  getMovie = (i: string) => {
+    this.store.dispatch(_actions.getMovie({ i }));
+  };
+
+  clearMovie = () => {
+    this.store.dispatch(_actions.clearMovie());
   };
 }

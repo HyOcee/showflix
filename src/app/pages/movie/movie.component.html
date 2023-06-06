@@ -1,1 +1,42 @@
-<p>movie works!</p>
+<section class="movie">
+  <img [src]="(movie$ | async)?.Poster" alt="" />
+
+  <div>
+    <h2>{{ (movie$ | async)?.Title }}</h2>
+
+    <p>{{ (movie$ | async)?.Plot }}</p>
+
+    <div class="ratings-and-date">
+      <div>
+        <i class="far fa-clock"></i>
+        <span>{{ (movie$ | async)?.Released }}</span>
+      </div>
+      <div>
+        <i class="far fa-star"></i>
+        <span>{{ (movie$ | async)?.imdbRating }}</span>
+      </div>
+      <div>
+        <i class="far fa-play"></i>
+        <span>{{ "1hr 15mins" }}</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <app-button text="Watch Now"></app-button>
+      <button>
+        <i class="far fa-heart"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section *ngIf="searchResults$ | async" class="similar-movies">
+  <h2>Similar Movies</h2>
+
+  <div class="movie-cards">
+    <app-movie-card
+      *ngFor="let item of (searchResults$ | async)?.Search | slice : 4"
+      [movie]="item"
+    ></app-movie-card>
+  </div>
+</section>

@@ -29,6 +29,21 @@ export const getMovieDetailsSuccess = createAction(
   props<{ movieDetails: IMovieDetail }>()
 );
 
-export const clearMovieDetails = createAction(
-    '[Details Page] Clear'
-)
+export const clearMovieDetails = createAction('[Details Page] Clear');
+
+export const getMovie = createAction(
+  '[Movie Page] Get Movie ',
+  props<{ i: string }>()
+);
+
+export const getMovieError = createAction(
+  '[Movie Page] Get Movie  Error',
+  props<{ error: string }>()
+);
+
+export const getMovieSuccess = createAction(
+  '[Movie Page] Get Movie  Success',
+  props<{ movie: IMovieDetail }>()
+);
+
+export const clearMovie = createAction('[Movie Page] Clear');

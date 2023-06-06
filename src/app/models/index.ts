@@ -6,6 +6,8 @@ export interface IMovie {
 
 export interface IMovieDetail extends IMovie {
   Plot: string;
+  Released: string;
+  imdbRating: string;
 }
 
 export interface ISearchResponse {

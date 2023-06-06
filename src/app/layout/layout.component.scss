@@ -2,8 +2,88 @@ main {
   padding: 20px;
 }
 
-@media screen and (min-width: 1024px) {
+nav {
+  padding: 20px;
+  width: 90vw;
+  max-width: 220px;
+  border-right: #f5f6f9 1px solid;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 999;
+
+  .logo {
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+
+    span {
+      color: #5f2eea;
+    }
+  }
+
+  .links {
+    display: grid;
+    margin-top: 40px;
+    gap: 40px;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a.search {
+      position: relative;
+
+      i {
+        background-color: #5f2eea;
+        color: white;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px;
+        font-size: 10px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: #5f2eea;
+        width: 4px;
+        top: 0;
+        left: -20px;
+        bottom: 0;
+      }
+    }
+
+    a.watchlist {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+}
+
+@media screen and (min-width: 760px) {
+  nav {
+    padding: 40px 40px 100px 30px;
+    .links {
+      a.search {
+        &::before {
+          left: -30px;
+        }
+      }
+    }
+  }
+
   main {
+    width: calc(100vw - 220px);
+    margin-left: auto;
     padding: 40px;
   }
 }

@@ -1,5 +1,5 @@
-<div class="overlay">
-  <div class="movie-details">
+<div *ngIf="movieDetails$ | async" class="overlay">
+  <div @slideInOut class="movie-details">
     <button (click)="back()" class="icon-button"><i class="fas fa-arrow-left"></i></button>
 
     <img [src]="(movieDetails$ | async)?.Poster" alt="" />
