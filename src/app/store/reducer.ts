@@ -9,6 +9,7 @@ export interface IAppState {
   getMovieDetailsLoading: boolean;
   movie: IMovieDetail | null;
   getMovieLoading: boolean;
+  navOpen: boolean;
 }
 
 const initialState: IAppState = {
@@ -18,6 +19,7 @@ const initialState: IAppState = {
   getMovieDetailsLoading: false,
   movie: null,
   getMovieLoading: false,
+  navOpen: false,
 };
 
 const reducer = createReducer(
@@ -71,6 +73,18 @@ const reducer = createReducer(
     getMovieLoading: false,
     movie: null,
   })),
+  on(_actions.openNav, (state) => ({
+    ...state,
+    navOpen: true,
+  })),
+  on(_actions.closeNav, (state) => ({
+    ...state,
+    navOpen: false,
+  })),
+  on(_actions.toggleNav, (state) => ({
+    ...state,
+    navOpen: !state.navOpen,
+  }))
 );
 
 export const AppReducer = {

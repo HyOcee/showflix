@@ -9,6 +9,7 @@ import { AppStoreFacade } from '../store/facade';
 })
 export class LayoutComponent implements OnInit {
   showMovieDetailsPage = false;
+  navOpen$ = this.storeFacade.navOpen$
 
   constructor(
     private route: ActivatedRoute,
@@ -25,5 +26,9 @@ export class LayoutComponent implements OnInit {
         this.showMovieDetailsPage = false;
       }
     });
+  }
+
+  toggleNav() {
+    this.storeFacade.toggleNav()
   }
 }

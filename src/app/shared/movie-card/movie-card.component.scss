@@ -1,5 +1,6 @@
 .card {
-  aspect-ratio: 8 / 10;
+  // aspect-ratio: 8 / 10;
+  height: 100%;
   border-radius: 12px;
   position: relative;
   background-color: black;
@@ -26,4 +27,6 @@ button {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+  outline: none;
+  border: none;
 }

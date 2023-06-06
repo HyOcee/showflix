@@ -1,21 +1,29 @@
 <div class="container">
-    <nav>
-        <div class="logo" routerLink="/">Show<span>Flix</span></div>
+  <nav [ngClass]="{ open: (navOpen$ | async) }">
+    <button (click)="toggleNav()" class="toggle">
+      <i class="fas fa-arrow-left"></i>
+    </button>
 
-        <div class="links">
-            <a routerLink="/" class="search">
-                <i class="fa fa-search"></i>
-                <span>Search</span>
-            </a>
-            <a class="watchlist">
-                <i class="far fa-heart"></i>
-                <span>Watchlist</span>
-            </a>
-        </div>
-    </nav>
-    <main>
-        <router-outlet></router-outlet>
-    </main>
+    <div class="logo" routerLink="/">Show<span>Flix</span></div>
+
+    <div class="links">
+      <a routerLink="/" class="search">
+        <i class="fa fa-search"></i>
+        <span>Search</span>
+      </a>
+      <a class="watchlist">
+        <i class="far fa-heart"></i>
+        <span>Watchlist</span>
+      </a>
+    </div>
+  </nav>
+  <main>
+    <div class="mobile_">
+      <button (click)="toggleNav()"><i class="fas fa-bars"></i></button>
+      <div class="logo" routerLink="/">Show<span>Flix</span></div>
+    </div>
+    <router-outlet></router-outlet>
+  </main>
 </div>
 
 <app-movie-details *ngIf="showMovieDetailsPage"></app-movie-details>

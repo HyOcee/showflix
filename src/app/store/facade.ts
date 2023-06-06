@@ -36,6 +36,11 @@ export class AppStoreFacade {
     select(_selectors.selectAppState),
     map((x) => x?.getMovieLoading || false)
   );
+ 
+  navOpen$ = this.store.pipe(
+    select(_selectors.selectAppState),
+    map((x) => x?.navOpen || false)
+  );
 
   constructor(private readonly store: Store) {}
 
@@ -57,5 +62,17 @@ export class AppStoreFacade {
 
   clearMovie = () => {
     this.store.dispatch(_actions.clearMovie());
+  };
+
+  openNav = () => {
+    this.store.dispatch(_actions.openNav());
+  };
+
+  closeNav = () => {
+    this.store.dispatch(_actions.closeNav());
+  };
+
+  toggleNav = () => {
+    this.store.dispatch(_actions.toggleNav());
   };
 }

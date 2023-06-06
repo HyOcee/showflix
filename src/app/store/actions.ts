@@ -47,3 +47,7 @@ export const getMovieSuccess = createAction(
 );
 
 export const clearMovie = createAction('[Movie Page] Clear');
+
+export const openNav = createAction('[Navbar] Open');
+export const closeNav = createAction('[Navbar] Close');
+export const toggleNav = createAction('[Navbar] Toggle');
